@@ -1,0 +1,30 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "host": "api.test.com",
+  "schemes": ["https"],
+  "paths": {
+    "/test-enum": {
+      "get": {
+        "description": "",
+        "responses": {
+          "200": {
+            "description": "",
+            "schema": {
+              "properties": {
+                "value": {
+                  "type": "string",
+                  "enum": [ "Value" ]
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

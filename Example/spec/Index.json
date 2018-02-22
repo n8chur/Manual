@@ -1,0 +1,51 @@
+{
+	"swagger": "2.0",
+	"info": {  
+		"title": "Example",
+		"description":"An Example server",
+		"version":"1.0.0"
+	},
+	"host": "example.automatic.com",
+	"schemes": [  
+		"https"
+	],
+	"paths": {
+		"/test/{test_id}": {
+			"get": {
+				"description": "A test endpoint.",
+				"parameters": [
+					{
+						"name": "test_id",
+						"in": "path",
+						"description": "The test ID.",
+						"required": true,
+						"type": "string",
+						"x-example": "TEST_ABC123"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "Success",
+						"schema": {
+							"$ref": "Models/PageOfBase.json"
+						}
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"Base": {
+			"$ref": "Models/Base.json"
+		},
+		"Base_A": {
+			"$ref": "Models/Base_A.json"
+		},
+		"Base_B": {
+			"$ref": "Models/Base_B.json"
+		},
+		"PageOfBase": {
+			"$ref": "Models/PageOfBase.json"
+		}
+	}
+}

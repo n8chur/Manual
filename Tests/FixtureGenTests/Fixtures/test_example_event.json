@@ -1,0 +1,23 @@
+[
+  {
+    "description" : "An event occurred.",
+    "error_code" : 40,
+    "event_type" : "FieldErrorEvent",
+    "field_name" : "username_field",
+    "id" : 678
+  },
+  {
+    "description" : "An event occurred.",
+    "event_type" : "SuccessEvent",
+    "id" : 678,
+    "success_code" : 20,
+    "value" : "abc123"
+  },
+  {
+    "description" : "An event occurred.",
+    "error_code" : 40,
+    "event_type" : "UnauthorizedErrorEvent",
+    "id" : 678,
+    "username" : "bad.dude@automatic.com"
+  }
+]

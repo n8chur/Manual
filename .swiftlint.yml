@@ -1,0 +1,12 @@
+included:
+  - Sources
+disabled_rules:
+  - trailing_whitespace
+  - line_length
+  - cyclomatic_complexity
+  - nesting
+  - trailing_comma
+  - large_tuple
+  - function_body_length
+  - force_try
+  - todo # TODO: Remove

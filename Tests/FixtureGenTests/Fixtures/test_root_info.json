@@ -1,0 +1,13 @@
+{
+  "base_path" : "/v2",
+  "example_paths" : [
+    "examples/foo.json",
+    "examples/bar.json"
+  ],
+  "folder_paths" : [
+    "v2/foo/",
+    "v2/foo/bar/"
+  ],
+  "host" : "petstore.swagger.io",
+  "scheme" : "https"
+}

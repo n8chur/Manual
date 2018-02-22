@@ -1,0 +1,33 @@
+{
+  "request" : {
+    "body" : "",
+    "headers" : {
+
+    },
+    "json_body" : null,
+    "method" : "GET",
+    "parameters" : {
+      "path" : {
+
+      },
+      "query" : {
+
+      }
+    },
+    "path" : "test-abstract/",
+    "url" : "https://api.test.com/test-abstract/"
+  },
+  "response" : {
+    "body" : "[{\"abstract-base-child\":true,\"type\":\"AbstractBase_Child\"}]",
+    "headers" : {
+
+    },
+    "json_body" : [
+      {
+        "abstract-base-child" : true,
+        "type" : "AbstractBase_Child"
+      }
+    ],
+    "status_code" : 200
+  }
+}

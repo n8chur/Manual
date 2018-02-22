@@ -1,0 +1,45 @@
+{
+  "request" : {
+    "body" : "{\"category\":{\"id\":234,\"name\":\"Category Name\"},\"id\":567,\"name\":\"Ronald\",\"photoUrls\":[\"http://www.image.com/doggie.jpeg\"],\"status\":\"pending\",\"tags\":[{\"id\":456,\"name\":\"business\"}]}",
+    "headers" : {
+
+    },
+    "json_body" : {
+      "category" : {
+        "id" : 234,
+        "name" : "Category Name"
+      },
+      "id" : 567,
+      "name" : "Ronald",
+      "photoUrls" : [
+        "http://www.image.com/doggie.jpeg"
+      ],
+      "status" : "pending",
+      "tags" : [
+        {
+          "id" : 456,
+          "name" : "business"
+        }
+      ]
+    },
+    "method" : "POST",
+    "parameters" : {
+      "path" : {
+
+      },
+      "query" : {
+
+      }
+    },
+    "path" : "pet/",
+    "url" : "https://petstore.swagger.io/v2/pet/"
+  },
+  "response" : {
+    "body" : "",
+    "headers" : {
+
+    },
+    "json_body" : null,
+    "status_code" : 405
+  }
+}

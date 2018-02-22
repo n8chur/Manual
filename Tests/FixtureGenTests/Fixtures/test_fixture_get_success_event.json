@@ -1,0 +1,36 @@
+{
+  "request" : {
+    "body" : "",
+    "headers" : {
+
+    },
+    "json_body" : null,
+    "method" : "GET",
+    "parameters" : {
+      "path" : {
+
+      },
+      "query" : {
+
+      }
+    },
+    "path" : "success-event/",
+    "url" : "https://petstore.swagger.io/v2/success-event/"
+  },
+  "response" : {
+    "body" : "[{\"description\":\"An event occurred.\",\"event_type\":\"SuccessEvent\",\"id\":678,\"success_code\":20,\"value\":\"abc123\"}]",
+    "headers" : {
+
+    },
+    "json_body" : [
+      {
+        "description" : "An event occurred.",
+        "event_type" : "SuccessEvent",
+        "id" : 678,
+        "success_code" : 20,
+        "value" : "abc123"
+      }
+    ],
+    "status_code" : 200
+  }
+}

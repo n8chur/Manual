@@ -1,0 +1,39 @@
+{
+  "request" : {
+    "body" : "",
+    "headers" : {
+
+    },
+    "json_body" : null,
+    "method" : "GET",
+    "parameters" : {
+      "path" : {
+
+      },
+      "query" : {
+
+      }
+    },
+    "path" : "test-non-abstract/",
+    "url" : "https://api.test.com/test-non-abstract/"
+  },
+  "response" : {
+    "body" : "[{\"reference\":{\"abstract-base-child\":true,\"type\":\"AbstractBase_Child\"},\"type\":\"Base_Child\"},{\"type\":\"Base\"}]",
+    "headers" : {
+
+    },
+    "json_body" : [
+      {
+        "reference" : {
+          "abstract-base-child" : true,
+          "type" : "AbstractBase_Child"
+        },
+        "type" : "Base_Child"
+      },
+      {
+        "type" : "Base"
+      }
+    ],
+    "status_code" : 200
+  }
+}

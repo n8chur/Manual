@@ -1,0 +1,14 @@
+{
+	"description": "A page of Base objects.",
+	"properties": {
+		"items": {
+			"type": "array",
+			"items": {
+				"$ref": "Base.json"
+			}
+		}
+	},
+	"required": [
+		"items"
+	]
+}

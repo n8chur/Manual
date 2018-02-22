@@ -1,0 +1,34 @@
+{
+  "request" : {
+    "body" : "",
+    "headers" : {
+
+    },
+    "json_body" : null,
+    "method" : "GET",
+    "parameters" : {
+      "path" : {
+
+      },
+      "query" : {
+
+      }
+    },
+    "path" : "test-nested/",
+    "url" : "https://api.test.com/test-nested/"
+  },
+  "response" : {
+    "body" : "[{\"nested-base-child\":true,\"nested-base-child-child\":true,\"type\":\"NestedBase_Child_Child\"}]",
+    "headers" : {
+
+    },
+    "json_body" : [
+      {
+        "nested-base-child" : true,
+        "nested-base-child-child" : true,
+        "type" : "NestedBase_Child_Child"
+      }
+    ],
+    "status_code" : 200
+  }
+}

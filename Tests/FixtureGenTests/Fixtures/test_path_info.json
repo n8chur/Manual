@@ -1,0 +1,7 @@
+{
+  "fixtures" : [
+    "fixtures/GET-200.json",
+    "fixtures/POST-422.json"
+  ],
+  "path_template" : "pet/{petId}/"
+}

@@ -1,0 +1,6 @@
+{
+  "fixtures" : [
+    "fixtures/GET-200.json"
+  ],
+  "path_template" : "test/{test_id}/"
+}

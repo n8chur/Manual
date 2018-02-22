@@ -1,0 +1,154 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Test children of children",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "host": "api.test.com",
+  "schemes": ["https"],
+  "paths": {
+    "/test-abstract": {
+      "get": {
+        "description": "Test abstract base object",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/AbstractBase"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/test-non-abstract": {
+      "get": {
+        "description": "Test non-abstract base object",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Base"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/test-nested": {
+      "get": {
+        "description": "Test nested schema inheritence",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/NestedBase"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Base": {
+      "discriminator": "type",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ]
+    },
+    "Base_Child": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Base"
+        },
+        {
+          "properties": {
+            "reference": {
+              "$ref": "#/definitions/AbstractBase_Child"
+            }
+          }
+        }
+      ]
+    },
+    "AbstractBase": {
+      "discriminator": "type",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "x-abstract": true
+    },
+    "AbstractBase_Child": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/AbstractBase"
+        },
+        {
+          "properties": {
+            "abstract-base-child": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "NestedBase": {
+      "discriminator": "type",
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "type"
+      ],
+      "x-abstract": true
+    },
+    "NestedBase_Child": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/NestedBase"
+        },
+        {
+          "properties": {
+            "nested-base-child": {
+              "type": "boolean"
+            }
+          }
+        }
+      ],
+      "x-abstract": true
+    },
+    "NestedBase_Child_Child": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/NestedBase_Child"
+        },
+        {
+          "properties": {
+            "nested-base-child-child": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
+  }
+}

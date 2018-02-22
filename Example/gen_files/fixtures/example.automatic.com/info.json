@@ -1,0 +1,13 @@
+{
+  "example_paths" : [
+    "examples/PageOfBase.json",
+    "examples/Base_B.json",
+    "examples/Base_A.json",
+    "examples/Base.json"
+  ],
+  "folder_paths" : [
+    "test/{test_id}/"
+  ],
+  "host" : "example.automatic.com",
+  "scheme" : "https"
+}

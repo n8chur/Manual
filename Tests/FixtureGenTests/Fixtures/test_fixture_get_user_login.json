@@ -1,0 +1,30 @@
+{
+  "request" : {
+    "body" : "",
+    "headers" : {
+
+    },
+    "json_body" : null,
+    "method" : "GET",
+    "parameters" : {
+      "path" : {
+
+      },
+      "query" : {
+        "password" : "psswrd1",
+        "username" : "user987"
+      }
+    },
+    "path" : "user/login/",
+    "url" : "https://petstore.swagger.io/v2/user/login/?username=user987&password=psswrd1"
+  },
+  "response" : {
+    "body" : "String",
+    "headers" : {
+      "X-Expires-After" : "2017-04-14T12:00:00Z+00:00",
+      "X-Rate-Limit" : "42"
+    },
+    "json_body" : "String",
+    "status_code" : 200
+  }
+}

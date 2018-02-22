@@ -1,0 +1,20 @@
+{
+	"description": "The base model object",
+	"properties": {
+		"type": {
+			"description": "The discriminator for the base model.",
+			"type": "string"
+		},
+		"created_at": {
+			"description": "The date-time that this object was created at.",
+			"type": "string",
+			"format": "date-time",
+			"x-nullable": true
+		}
+	},
+	"required": [
+		"type"
+	],
+	"x-abstract": true,
+	"discriminator": "type"
+}

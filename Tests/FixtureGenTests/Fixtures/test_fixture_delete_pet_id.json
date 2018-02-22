@@ -1,0 +1,28 @@
+{
+  "request" : {
+    "body" : "",
+    "headers" : {
+      "api_key" : "APIKEY1234"
+    },
+    "json_body" : null,
+    "method" : "DELETE",
+    "parameters" : {
+      "path" : {
+        "petId" : "987"
+      },
+      "query" : {
+
+      }
+    },
+    "path" : "pet/987/",
+    "url" : "https://petstore.swagger.io/v2/pet/987/"
+  },
+  "response" : {
+    "body" : "",
+    "headers" : {
+
+    },
+    "json_body" : null,
+    "status_code" : 204
+  }
+}

@@ -1,0 +1,21 @@
+{
+	"description": "The first polymorphic implementation of Base.",
+	"allOf": [
+		{
+			"$ref": "Base.json"
+		},
+		{
+			"properties": {
+				"duration": {
+					"description": "The duration.",
+					"type": "number",
+					"format": "double",
+					"example": 42.133699999999997
+				}
+			},
+			"required": [
+				"duration"
+			]
+		}
+	]
+}

@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Guaka",
+        "repositoryURL": "https://github.com/nsomar/Guaka",
+        "state": {
+          "branch": null,
+          "revision": "9dfb2ea95b8ab9e799d0f65a79a2316679a758e0",
+          "version": "0.1.3"
+        }
+      },
+      {
+        "package": "StringScanner",
+        "repositoryURL": "https://github.com/oarrabi/StringScanner",
+        "state": {
+          "branch": null,
+          "revision": "246c697efe2f57d9042f58b1b53ace4fddb1efc4",
+          "version": "0.2.0"
+        }
+      },
+      {
+        "package": "SwaggerParser",
+        "repositoryURL": "https://github.com/Automatic/SwaggerParser.git",
+        "state": {
+          "branch": null,
+          "revision": "e92e769c6408d82bbd29759b844a4da17ff4d447",
+          "version": "0.6.1+separated"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
