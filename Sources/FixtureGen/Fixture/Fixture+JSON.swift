@@ -7,7 +7,7 @@ func bodies(withExample example: Any?) throws -> (jsonBody: JSON?, body: String)
     if let exampleJSON = example {
         let json = try JSON(exampleJSON)
         jsonBody = json
-        body = try json.stringValue()
+        body = json.stringValue()
     }
     
     return (jsonBody: jsonBody, body: body)

@@ -42,6 +42,14 @@ class ExampleTests: XCTestCase {
         let example = try swagger.exampleFor(objectNamed: "UnauthorizedErrorEvent")
         validate(that: example, serializesTo: try testFixturesFolder.JSONString(for: "test_example_unauthorized_error_event.json"))
     }
+
+    func testPolymoprhicPropertyExample() throws {
+        let relativeFolder = testFixturesFolder.appendingPathComponent("SinglePolymorphic")
+        let swaggerURL = URL(string: "test_swagger_polymorphic_property.json", relativeTo: relativeFolder)!
+        let swagger = try! Swagger(URL: swaggerURL)
+        let example = try swagger.exampleFor(objectNamed: "TestObject")
+        validate(that: example, serializesTo: try testFixturesFolder.JSONString(for: "test_example_polymorphic_property.json"))
+    }
 }
 
 fileprivate extension ExampleTests {

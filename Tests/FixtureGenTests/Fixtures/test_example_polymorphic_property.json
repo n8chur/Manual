@@ -1,0 +1,6 @@
+{
+  "test_property" : {
+    "child_b_property" : 42,
+    "type" : "ChildB"
+  }
+}

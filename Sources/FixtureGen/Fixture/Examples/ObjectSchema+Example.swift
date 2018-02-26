@@ -8,6 +8,16 @@ extension ObjectSchema {
             }
             return value
         }
+
+        // If the schema is abstract and has a discriminator and a child schema
+        // is found, return an example of one of the child schemas.
+        if
+            self.metadata.abstract,
+            self.metadata.discriminator != nil,
+            let schemaName = name,
+            let nameAndSchema = definitions.childSchemasReferencing(schemaName).first {
+                return try nameAndSchema.schema.example(with: definitions, forSchemaNamed: nameAndSchema.childName)
+        }
         
         // TODO: Consider schema rules.
         var example = [String: Any?]()

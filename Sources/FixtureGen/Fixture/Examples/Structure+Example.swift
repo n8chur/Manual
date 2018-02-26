@@ -56,14 +56,20 @@ fileprivate extension Schema {
         default: return []
         }
         
-        return definitions
+        return definitions.childSchemasReferencing(referencingName)
+    }
+}
+
+extension Dictionary where Key == String, Value == Schema {
+    func childSchemasReferencing(_ referencingName: String) -> [(childName: String, schema: AllOfSchema)]  {
+        return self
             .flatMap { (name, definition) -> (name: String, schema: AllOfSchema)? in
                 guard
                     case .allOf(let allOf) = definition.unwrapped.type,
                     !allOf.abstract else {
                         return nil
                 }
-                
+
                 return (name, allOf)
             }
             .flatMap { allOf -> (String, AllOfSchema)? in
@@ -71,7 +77,7 @@ fileprivate extension Schema {
                 guard references.count > 0 else {
                     return nil
                 }
-                
+
                 // TODO: Add support for redefinitions of discriminator values
                 // in children.
                 return (allOf.name, allOf.schema)

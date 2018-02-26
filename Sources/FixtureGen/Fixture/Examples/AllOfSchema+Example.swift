@@ -15,6 +15,16 @@ extension AllOfSchema {
                 throw ExampleError.allOfSchemaInvalidType(schema)
             }
         }
+
+        // If the schema is abstract and has a discriminator and a child schema
+        // is found, return an example of one of the child schemas.
+        if
+            self.abstract,
+            discriminator != nil,
+            let schemaName = name,
+            let nameAndSchema = definitions.childSchemasReferencing(schemaName).first {
+                return try nameAndSchema.schema.example(with: definitions, forSchemaNamed: nameAndSchema.childName)
+        }
         
         if let discriminatorKey = discriminator, let discriminatorValue = name {
             exampleObjects.append([discriminatorKey: discriminatorValue])

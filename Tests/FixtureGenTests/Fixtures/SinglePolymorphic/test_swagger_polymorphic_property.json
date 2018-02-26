@@ -1,0 +1,57 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "host": "api.test.com",
+  "schemes": ["https"],
+  "paths": {},
+  "definitions": {
+    "Base": {
+      "properties": {
+        "type": {
+          "type": "string"
+        }
+      },
+      "x-abstract": true,
+      "discriminator": "type"
+    },
+    "ChildA": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Base"
+        },
+        {
+          "properties": {
+            "child_a_property": {
+              "type": "string"
+            }
+          }
+        }
+      ]
+    },
+    "ChildB": {
+      "allOf": [
+        {
+          "$ref": "#/definitions/Base"
+        },
+        {
+          "properties": {
+            "child_b_property": {
+              "type": "number"
+            }
+          }
+        }
+      ]
+    },
+    "TestObject": {
+      "properties": {
+        "test_property": {
+          "$ref": "#/definitions/Base"
+        }
+      }
+    }
+  }
+}
