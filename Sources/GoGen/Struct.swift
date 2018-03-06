@@ -17,17 +17,41 @@ extension Struct: SourceContentConvertible {
         sourceContent = sourceContent.appending(goStructNamed: self.name, self.properties.map {"\($0.structSourceContent)"})
         
         var sections = [sourceContent]
-        sections += self.interfaces.map {self.implementation(ofInterface: $0)}
+        for (index, interface) in self.interfaces.enumerated() {
+            // Ignore any properties that were previously implemented in another
+            // interface implementation.
+            let propertiesToIgnore: [Property]
+            let previousIndex = index - 1
+            if previousIndex >= 0 {
+                propertiesToIgnore = Array(self.interfaces[...previousIndex]).flatMap {$0.properties}
+            } else {
+                propertiesToIgnore = []
+            }
+
+            let implementation = self.implementation(ofInterface: interface, ignoringPropertiesMatching: propertiesToIgnore)
+            sections.append(implementation)
+        }
         sections += self.inlineEnums.map {$0.sourceContent}
         sections += self.inlineNamedTypes.map {$0.sourceContent}
         
         return sections.joined(separator: "\n\n")
     }
     
-    private func implementation(ofInterface interface: Interface) -> String {
+    private func implementation(ofInterface interface: Interface, ignoringPropertiesMatching propertiesToIgnore: [Property]) -> String {
+        // Remove properties that have already been defined
+        let properties = interface.properties.flatMap { property -> Property? in
+            let hasMatch = propertiesToIgnore.first(where: {$0.name == property.name})
+            guard hasMatch == nil else {
+                    return nil
+            }
+
+            return property
+        }
+
+
         var sections = [String.goTypeSourceComment(describing: "\(self.name)'s conformance to \(interface.name)")]
         
-        sections += interface.properties.map { property -> String in
+        sections += properties.map { property -> String in
             guard let structProperty = self.properties.first(where: {$0.name == property.name}) else {
                 // This is a programmer error.
                 fatalError("\(self.name) does not have property \(property.name) defined on \(interface.name)")
