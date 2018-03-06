@@ -17,20 +17,15 @@ extension Struct: SourceContentConvertible {
         sourceContent = sourceContent.appending(goStructNamed: self.name, self.properties.map {"\($0.structSourceContent)"})
         
         var sections = [sourceContent]
-        for (index, interface) in self.interfaces.enumerated() {
-            // Ignore any properties that were previously implemented in another
-            // interface implementation.
-            let propertiesToIgnore: [Property]
-            let previousIndex = index - 1
-            if previousIndex >= 0 {
-                propertiesToIgnore = Array(self.interfaces[...previousIndex]).flatMap {$0.properties}
-            } else {
-                propertiesToIgnore = []
-            }
 
+        var propertiesToIgnore = [Property]()
+        for interface in self.interfaces {
             let implementation = self.implementation(ofInterface: interface, ignoringPropertiesMatching: propertiesToIgnore)
             sections.append(implementation)
+
+            propertiesToIgnore += interface.properties
         }
+
         sections += self.inlineEnums.map {$0.sourceContent}
         sections += self.inlineNamedTypes.map {$0.sourceContent}
         
@@ -38,7 +33,7 @@ extension Struct: SourceContentConvertible {
     }
     
     private func implementation(ofInterface interface: Interface, ignoringPropertiesMatching propertiesToIgnore: [Property]) -> String {
-        // Remove properties that have already been defined
+        // Remove properties that have already been defined.
         let properties = interface.properties.flatMap { property -> Property? in
             let hasMatch = propertiesToIgnore.first(where: {$0.name == property.name})
             guard hasMatch == nil else {
@@ -47,7 +42,6 @@ extension Struct: SourceContentConvertible {
 
             return property
         }
-
 
         var sections = [String.goTypeSourceComment(describing: "\(self.name)'s conformance to \(interface.name)")]
         
