@@ -16,6 +16,8 @@ Manual supports unique OpenAPI 2.0 features like:
 - nullability using `x-nullable`
 - specs with external file refrences to model schemas
 
+You can use [ManualReaderObjC](https://github.com/Automatic/ManualReaderObjC) to easily manage your generated fixtures in your iOS project. [ManualReaderObjC](https://github.com/Automatic/ManualReaderObjC) makes it easy to stub requests/reponses, parse fixtures into a type safe object, and pull out JSON examples of defined objects to test model object parsing in your unit tests.
+
 ## Usage
 
 Print the usage description.
