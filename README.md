@@ -89,14 +89,6 @@ Please report any issues found on Github in the issues section.
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/Automatic/Manual/tags).
 
-## Authors
-
-* **Westin Newell** - [n8chur](https://github.com/n8chur)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
 ## Acknowledgments
 
 * @AttilaTheFun for [SwaggerParser](https://github.com/AttilaTheFun/SwaggerParser)
