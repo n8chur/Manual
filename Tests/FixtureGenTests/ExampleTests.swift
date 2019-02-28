@@ -56,8 +56,8 @@ fileprivate extension ExampleTests {
     func validate(that example: Example, serializesTo expectedString: String) {
         // Initializing a new string force unwrapped seems to solve debug
         // description issues where the underlying object is still an optional.
-        let result = String(try! example.toJSONString())!
-        let expected = String(expectedString)!
+        let result = String(try! example.toJSONString())
+        let expected = String(expectedString)
         XCTAssertEqual(result, expected)
     }
 }

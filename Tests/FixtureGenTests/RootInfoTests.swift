@@ -17,8 +17,8 @@ class RootInfoTests: XCTestCase {
     func testRootInfo() {
         // Initializing a new string force unwrapped seems to solve debug 
         // description issues where the underlying object is still an optional.
-        let result = String(try! rootInfo.toJSONString())!
-        let expected = String(testJSONString)!
+        let result = String(try! rootInfo.toJSONString())
+        let expected = String(testJSONString)
         XCTAssertEqual(result, expected)
     }
     
@@ -35,7 +35,7 @@ class RootInfoTests: XCTestCase {
         
         // Initializing a new string force unwrapped seems to solve debug
         // description issues where the underlying object is still an optional.
-        let expected = String(testJSONString)!
+        let expected = String(testJSONString)
         XCTAssertEqual(contents, expected)
     }
 }

@@ -110,8 +110,8 @@ fileprivate extension FixtureTests {
     func validate(that fixture: Fixture, serializesTo expectedString: String) {
         // Initializing a new string force unwrapped seems to solve debug
         // description issues where the underlying object is still an optional.
-        let result = String(try! fixture.toJSONString())!
-        let expected = String(expectedString)!
+        let result = String(try! fixture.toJSONString())
+        let expected = String(expectedString)
         XCTAssertEqual(result, expected)
     }
 }

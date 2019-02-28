@@ -10,7 +10,7 @@ extension Schema {
         case .string(let format): return try self.metadata.example(withFormat: format)
         case .number(let format): return try self.metadata.example(withFormat: format)
         case .integer(let format): return try self.metadata.example(withFormat: format)
-        case .enumeration(_): return try self.metadata.enumerationExample()
+        case .enumeration: return try self.metadata.enumerationExample()
         case .boolean: return try self.metadata.boolExample()
         case .null: return nil
         case .file: throw ExampleError.unsupportedSchemaType(self)

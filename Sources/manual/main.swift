@@ -11,7 +11,8 @@ let command = Command(usage: "manual -i [input]", flags: flags)
 
 command.run = { flags, args in
     do {
-        let swagger = try Swagger(URL: flags.inputFile)
+        let contents = try String(contentsOf: flags.inputFile)
+        let swagger = try Swagger(from: contents)
         
         if let fixtureOutput = flags.fixtureOutput {
             try swagger.writeFixtures(in: fixtureOutput)

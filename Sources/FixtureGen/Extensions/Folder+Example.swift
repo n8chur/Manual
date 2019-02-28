@@ -8,7 +8,7 @@ extension Folder {
     ///
     /// Returns the paths of all of the files that were added.
     func addExamples(of definitions: [String: Schema]) throws -> [String] {
-        let examples = try definitions.flatMap {try Example(name: $0.key, definition: $0.value, for: definitions)}
+        let examples = try definitions.compactMap {try Example(name: $0.key, definition: $0.value, for: definitions)}
 
         guard !self.subfolders.contains(where: {$0.name == Folder.ExamplesName}) else {
             fatalError("Examples subfolder already exists in \(self.name).")

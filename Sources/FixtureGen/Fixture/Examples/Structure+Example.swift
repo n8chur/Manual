@@ -63,7 +63,7 @@ fileprivate extension Schema {
 extension Dictionary where Key == String, Value == Schema {
     func childSchemasReferencing(_ referencingName: String) -> [(childName: String, schema: AllOfSchema)]  {
         return self
-            .flatMap { (name, definition) -> (name: String, schema: AllOfSchema)? in
+            .compactMap { (name, definition) -> (name: String, schema: AllOfSchema)? in
                 guard
                     case .allOf(let allOf) = definition.unwrapped.type,
                     !allOf.abstract else {
@@ -72,7 +72,7 @@ extension Dictionary where Key == String, Value == Schema {
 
                 return (name, allOf)
             }
-            .flatMap { allOf -> (String, AllOfSchema)? in
+            .compactMap { allOf -> (String, AllOfSchema)? in
                 let references = allOf.schema.subschemas.structuresReferencing(referencingName)
                 guard references.count > 0 else {
                     return nil

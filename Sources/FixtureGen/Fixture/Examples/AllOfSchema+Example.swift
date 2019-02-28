@@ -47,7 +47,7 @@ extension AllOfSchema {
     
     var discriminator: String? {
         return self.subschemas.lazy
-            .flatMap {$0.discriminator}
+            .compactMap {$0.discriminator}
             .first
     }
 }

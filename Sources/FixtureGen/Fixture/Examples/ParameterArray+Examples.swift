@@ -3,7 +3,7 @@ import Foundation
 
 extension Array where Element == Parameter {
     func examples(forType type: ParameterLocation) throws -> [String: String?] {
-        let exampleTuples = try flatMap { parameter -> (name: String, example: Any?)? in
+        let exampleTuples = try compactMap { parameter -> (name: String, example: Any?)? in
             guard case .other(let fixedFields, let items) = parameter, fixedFields.location == type else {
                 return nil
             }

@@ -1,19 +1,25 @@
+// swift-tools-version:4.2
 import PackageDescription
-import Foundation
 
 let package = Package(
     name: "Manual",
-    targets: [
-      Target(name: "ManualKit"),
-      Target(name: "FixtureGen", dependencies: ["ManualKit"]),
-      Target(name: "GoGen", dependencies: ["ManualKit"]),
-      Target(name: "manual", dependencies: [
-        "FixtureGen",
-        "GoGen"
-      ])
+    products: [
+        .executable(name: "manual", targets: ["manual"])
     ],
     dependencies: [
-        .Package(url: "https://github.com/Automatic/SwaggerParser.git", majorVersion: 0, minor: 6),
-        .Package(url: "https://github.com/nsomar/Guaka", majorVersion: 0, minor: 1)
-    ]
+        .package(url: "https://github.com/n8chur/SwaggerParser.git", .exact("0.6.2")),
+        .package(url: "https://github.com/nsomar/Guaka", .exact("0.3.1"))
+    ],
+    targets: [
+        .target(name: "ManualKit", dependencies: ["SwaggerParser", "Guaka"]),
+        .target(name: "FixtureGen", dependencies: ["ManualKit"]),
+        .target(name: "GoGen", dependencies: ["ManualKit"]),
+        .target(name: "manual", dependencies: [
+            "FixtureGen",
+            "GoGen"
+        ]),
+        .testTarget(name: "FixtureGenTests", dependencies: ["FixtureGen"]),
+        .testTarget(name: "GoGenTests", dependencies: ["GoGen"])
+    ],
+    swiftLanguageVersions: [.v4]
 )

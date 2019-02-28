@@ -12,7 +12,7 @@ extension ArrayItem {
             // Currently assumes a `collectionFormat` of `multi`.
             // TODO: Support other `collectionFormat`s.
         // TODO: Come up with a better way to represent this.
-        case .query: return array.flatMap {$0 as? String}.joined(separator: "&\(name)=")
+        case .query: return array.compactMap {$0 as? String}.joined(separator: "&\(name)=")
         case .body: return array
         // TODO:
         case .formData: return "TODO"
